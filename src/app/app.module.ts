@@ -6,17 +6,21 @@ import { AppComponent } from './app.component';
 import {HttpClientModule} from "@angular/common/http";
 import { ListHomeComponent } from './component/list-home/list-home.component';
 import { CreateHomeComponent } from './component/create-home/create-home.component';
+import { EditComponent } from './component/edit/edit.component';
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
     AppComponent,
     ListHomeComponent,
     CreateHomeComponent,
+    EditComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

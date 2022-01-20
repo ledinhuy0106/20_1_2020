@@ -7,6 +7,7 @@
     <th>#</th>
     <th>Teen nhaf</th>
     <th>Loai</th>
+    <th>Sua</th>
     <th>xoa</th>
   </tr>
   </thead>
@@ -15,7 +16,9 @@
     <td>{{h.id}}</td>
     <td>{{h.name}}</td>
     <td>{{h.category?.name}}</td>
+    <td><a class="btn btn-warning" [routerLink]="['edit',h.id]"> Edit</a></td>
     <td><a class=" btn btn-info" (click)="delete(h.id)" > Xoa</a></td>
+
   </tr>
   </tbody>
 </table>

@@ -1,0 +1,32 @@
+<div>
+  <div class="row">
+    <div class="col-3"></div>
+    <div class="col-6">
+      <h1>Sửa</h1>
+      <form [formGroup]="homeForm" (ngSubmit)="update()">
+        <table>
+          <tr>
+            <td>Mã :</td>
+            <td><input type="text" formControlName="id">{{home.id}} </td>
+          </tr>
+          <tr>
+            <td> Chủ đề:</td>
+            <td><input type="text" formControlName="title" [(ngModel)]="home.name" ></td>
+        </tr>
+          <tr>
+          <td>
+            <select  formControlName="status">
+              <option [value]="null">{{home.category?.name}}</option>
+              <option *ngFor="let c of categories"
+                      [value]="c.id">
+                {{c.name}}
+              </option>
+            </select></td>
+        </tr>
+        </table>
+        <button class="btn bg-primary" > Update</button>
+      </form>
+    </div>
+    <div class="col-3"></div>
+  </div>
+</div>

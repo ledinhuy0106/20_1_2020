@@ -18,8 +18,6 @@ export class CreateHomeComponent implements OnInit {
     id: new FormControl(),
     name: new FormControl(),
   });
-
-
   constructor(private _homeService: HomeService,
               private router: Router) {
   }
