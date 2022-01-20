@@ -1,0 +1,35 @@
+<div>
+  <div class="row">
+    <div class="col-3"></div>
+    <div class="col-6">
+      <h1>Tạo sản phẩm mới</h1>
+      <form [formGroup]="homeForm" (ngSubmit)="create()">
+        <table>
+          <tr>
+            <td></td>
+            <td><input type="hidden" formControlName="id"></td>
+          </tr>
+          <tr>
+            <td>Tiêu đề:</td>
+            <td><input type="text" formControlName="title"></td>
+          </tr>
+          <tr>
+            <td> Category</td>
+            <td>
+              <select formControlName="category">
+                <option [ngValue]="null" disabled>Category</option>
+                <option *ngFor="let ct of category" [(ngModel)]="ct.id">{{ct?.name}}</option>
+              </select></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>
+              <button class="btn bg-gradient bg-primary">Tạo mới</button>
+            </td>
+          </tr>
+        </table>
+      </form>
+    </div>
+    <div class="col-3"></div>
+  </div>
+</div>
