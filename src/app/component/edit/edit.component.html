@@ -5,17 +5,17 @@
       <h1>Sửa</h1>
       <form [formGroup]="homeForm" (ngSubmit)="update()">
         <table>
-          <tr>
-            <td>Mã :</td>
-            <td><input type="text" formControlName="id">{{home.id}} </td>
-          </tr>
+<!--          <tr>-->
+<!--            <td>Mã :</td>-->
+<!--            <td><input type="text" formControlName="id" value="{{home.id}}"> </td>-->
+<!--          </tr>-->
           <tr>
             <td> Chủ đề:</td>
-            <td><input type="text" formControlName="title" [(ngModel)]="home.name" ></td>
+            <td><input type="text" formControlName="name" [(ngModel)]="home.name" ></td>
         </tr>
           <tr>
           <td>
-            <select  formControlName="status">
+            <select  formControlName="category">
               <option [value]="null">{{home.category?.name}}</option>
               <option *ngFor="let c of categories"
                       [value]="c.id">

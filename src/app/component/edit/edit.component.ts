@@ -12,7 +12,7 @@ import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
 })
 export class EditComponent implements OnInit {
   home!:Home;
-  categories !: Category[];
+  categories!: Category[];
   category!:Category;
   constructor(private activatedRoute: ActivatedRoute,
               private homeService:HomeService,
@@ -20,8 +20,8 @@ export class EditComponent implements OnInit {
               private router: Router) { }
 
   homeForm :FormGroup =this.fb.group({
-    id:new FormControl(),
     name:new FormControl(),
+    category:new FormControl()
   })
 
   ngOnInit(): void {
@@ -29,12 +29,14 @@ export class EditComponent implements OnInit {
       let id = paraMap.get('id')
       console.log(id)
       // @ts-ignore
-      this.blogService.findById(id).subscribe(result => {
+      this.homeService.findById(id).subscribe(result => {
+        // @ts-ignore
         this.home = result
         console.log(result)
       })
       this.homeService.getAll().subscribe(rs=>{
         this.categories=rs
+        console.log(rs)
       })
 
     })
@@ -46,19 +48,25 @@ export class EditComponent implements OnInit {
   }
 
   update(){
-    const home=this.homeForm.value;
-    if(home.categories==null){
-      home.categories=this.home.category?.id
+    // const home=this.homeForm.value;
+    // if(home.category==null){
+    //   home.category=this.home.category?.id
+    // }
+    // console.log(home.category)
+    // this.category={
+    //   id : home.category
+    //
+    // }
+    // home.category=this.category
+    const home = {
+      name: this.homeForm.value.name,
+      category: {
+        id: this.homeForm.value.category
+      }
     }
-    console.log(home.status)
-    this.category={
-      id : home.status,
-    }
-    home.categories=this.category
     this.homeService.editHome(this.home.id,home).subscribe(()=>{
       alert("Sửa thành công ")
       this.router.navigate(["/"])
     })
   }
-
 }

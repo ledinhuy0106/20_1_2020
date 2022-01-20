@@ -4,7 +4,7 @@ import {Observable} from "rxjs";
 import {Home} from "../model/home";
 import {Category} from "../model/category";
 const api_url='http://localhost:8080/api/homes'
-const api_url2='http://localhost:8080/api/homes/getllcategories'
+const api_url2='http://localhost:8080/api/homes/getcategories'
 
 @Injectable({
   providedIn: 'root'

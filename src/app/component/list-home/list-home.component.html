@@ -17,8 +17,7 @@
     <td>{{h.name}}</td>
     <td>{{h.category?.name}}</td>
     <td><a class="btn btn-warning" [routerLink]="['edit',h.id]"> Edit</a></td>
-    <td><a class=" btn btn-info" (click)="delete(h.id)" > Xoa</a></td>
-
+    <td><a class=" btn btn-info" (click)="delete(h.id)">Xoa</a></td>
   </tr>
   </tbody>
 </table>
