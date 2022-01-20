@@ -17,6 +17,7 @@ export class CreateHomeComponent implements OnInit {
   homeForm: FormGroup = new FormGroup({
     id: new FormControl(),
     name: new FormControl(),
+    category: new FormControl()
   });
   constructor(private _homeService: HomeService,
               private router: Router) {
@@ -29,17 +30,15 @@ export class CreateHomeComponent implements OnInit {
     })
   }
   create() {
-    const home = this.homeForm.value;
-    console.log(home.category)
+    let home = this.homeForm.value;
     // @ts-ignore
     this.category1={
-      id : home.category,
+      id : this.homeForm.value.category,
     }
     home.category=this.category1
-    console.log(home)
     this._homeService.create(home).subscribe(() => {
       alert("thêm thành công")
-      this.router.navigate(["blogs"])
+      this.router.navigate([""])
     })
   }
 }
