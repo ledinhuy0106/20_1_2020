@@ -35,10 +35,8 @@ export class CreatePostComponent implements OnInit {
     this.category1 = {
       id: post.category
     }
-    post.category = this.category1,
-      console.log(post)
+    post.category = this.category1
     this._postService.create(post).subscribe(() => {
-      alert("thêm thành công")
       this.router.navigate([""])
     })
   }
