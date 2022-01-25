@@ -1,0 +1,13 @@
+create
+<div>
+  <form [formGroup]="form" (submit)="create()">
+    <input type="text" formControlName="title" >
+    <input type="text" formControlName="content">
+    <select formControlName="category">
+      <option [ngValue]="null" disabled></option>
+      <option *ngFor="let c of category" value="{{c?.id}}">{{c.name}}
+      </option>
+    </select>
+    <input type="submit" value="Submit">
+  </form>
+</div>
